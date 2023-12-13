@@ -1,23 +1,38 @@
 function getComputerChoice() {
-    const array = ["kő", "papír", "olló"];
+    const array = ["rock", "paper", "scissors"];
         let compChoice = array[Math.floor(Math.random()*3)];
         return compChoice;
 }
-
-function playRound() {
-      if ((playerSelection == "kő" && computerSelection === "olló") ||
-         (playerSelection == "papír" && computerSelection === "kő") ||
-         (playerSelection == "olló" && computerSelection === "papír")) {
-            console.log("Nyertél!");
-         } else if 
-            (playerSelection == computerSelection) {
-            console.log("Döntetlen!"); 
-            } else          
-                console.log("Vesztettél!");
-         }
-
-
-const playerSelection = prompt("kő, papír, olló?").toLowerCase();
-const computerSelection = getComputerChoice();
+   function game() {
+      function playRound() {
+         const playerSelection = prompt("rock, paper, scissors?").toLowerCase();
+         const computerSelection = getComputerChoice();
+            if ((playerSelection == "rock" && computerSelection == "scissors") ||
+               (playerSelection == "paper" && computerSelection == "rock") ||
+               (playerSelection == "scissors" && computerSelection == "paper")) {
+           //    console.log("Win!");
+               playerScore++;
+                  } else if 
+                  (playerSelection == computerSelection) {
+             //  console.log("Tie!"); 
+                     } else          
+               //   console.log("Lose!");
+                     computerScore++;
 console.log(playerSelection, computerSelection);
-playRound();
+console.log(playerScore, computerScore);
+   }
+   playRound();
+   playRound();
+   playRound();
+   playRound();
+   playRound();
+      if (playerScore > computerScore) {
+         console.log("Win!");
+      } else if (playerScore < computerScore) {
+         console.log("Lose!");
+      } else
+         console.log("Tie!");
+}
+playerScore=0;
+computerScore=0;
+game();
