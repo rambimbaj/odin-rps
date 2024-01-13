@@ -15,6 +15,22 @@ function game() {
       playerScore++;
     } else if (playerSelection == computerSelection) {
     } else computerScore++;
+
+    const choice = document.createElement("div");
+    choice.innerText =
+      "Player chose: " +
+      playerSelection +
+      "! " +
+      "Computer chose: " +
+      computerSelection +
+      "!";
+    document.body.appendChild(choice);
+
+    const score = document.createElement("div");
+    score.innerText =
+      "Current score: " + playerScore + " - " + computerScore;
+    document.body.appendChild(score);
+
     console.log(playerSelection, computerSelection);
     console.log(playerScore, computerScore);
   }
