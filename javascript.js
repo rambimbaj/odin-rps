@@ -4,29 +4,31 @@ function getComputerChoice() {
   return compChoice;
 }
 function game() {
-  function playRound() {
-    const playerSelection = prompt("rock, paper, scissors?").toLowerCase();
+  function playRound(selection) {
+    const playerSelection = selection;
     const computerSelection = getComputerChoice();
     if (
       (playerSelection == "rock" && computerSelection == "scissors") ||
       (playerSelection == "paper" && computerSelection == "rock") ||
       (playerSelection == "scissors" && computerSelection == "paper")
     ) {
-      //    console.log("Win!");
       playerScore++;
     } else if (playerSelection == computerSelection) {
-      //  console.log("Tie!");
-    }
-    //   console.log("Lose!");
-    else computerScore++;
+    } else computerScore++;
     console.log(playerSelection, computerSelection);
     console.log(playerScore, computerScore);
   }
-  playRound();
-  playRound();
-  playRound();
-  playRound();
-  playRound();
+
+  document.querySelector("#rock").addEventListener("click", function () {
+    playRound("rock");
+  });
+  document.querySelector("#paper").addEventListener("click", function () {
+    playRound("paper");
+  });
+  document.querySelector("#scissors").addEventListener("click", function () {
+    playRound("scissors");
+  });
+
   if (playerScore > computerScore) {
     console.log("Win!");
   } else if (playerScore < computerScore) {
