@@ -24,11 +24,9 @@ function game() {
       computerSelection +
       "!";
     document.body.appendChild(choice);
-
     const score = document.createElement("div");
     score.innerText = "Current score: " + playerScore + " - " + computerScore;
     document.body.appendChild(score);
-
     const result = document.createElement("div");
     if (playerScore == 3) {
       result.innerText = "Win!";
@@ -36,19 +34,19 @@ function game() {
     } else if (computerScore == 3) {
       result.innerText = "Lose!";
       document.body.appendChild(result);
-    } 
-
-    if ((playerScore == 3) || (computerScore == 3)) {
+    }
+    if (playerScore == 3 || computerScore == 3) {
+      document.getElementById("rock").disabled = true;
+      document.getElementById("paper").disabled = true;
+      document.getElementById("scissors").disabled = true;
       const newGame = document.createElement("button");
       newGame.setAttribute("id", "newGame");
       newGame.innerText = "Play again!";
       document.body.appendChild(newGame);
       document.getElementById("newGame").addEventListener("click", function () {
-      location.reload();
-      })
+        location.reload();
+      });
     }
-    //   console.log(playerSelection, computerSelection);
-    //   console.log(playerScore, computerScore);
   }
   document.querySelector("#rock").addEventListener("click", function () {
     playRound("rock");
